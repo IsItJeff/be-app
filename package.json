@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node listener.js"
+    "server": "nodemon listener.js"
   },
   "author": "Jefri Lunn",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^14.2.0",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "firebase": "^9.6.4",
+    "nodemon": "^2.0.15"
   }
 }

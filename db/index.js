@@ -1,12 +1,19 @@
-const { Pool } = require('pg');
-const ENV = process.env.NODE_ENV || 'dev';
+import { initializeApp } from 'firebase/app';
+import dotenv from "dotenv";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
-require('dotenv').config({
-  path: `${__dirname}/../.env.${ENV}`,
-});
+const config = {
+  apiKey: process.env.DB_APIKEY,
+  authDomain: process.env.DB_AUTHDOM,
+  projectId: process.env.DB_PROJECTID,
+  storageBucket: process.env.DB_STORAGEBUCKET,
+  messagingSenderId: process.env.DB_MESSAGESENDERID,
+  appId: process.env.DB_APPID,
+  measurementId: process.env.DB_MEASUREMENTID
+};
 
-if (!process.env.PGDATABASE) {
-  throw new Error('PGDATABASE not set');
-}
+const app = initializeApp(config);
+const db = getFirestore(app);
 
-module.exports = new Pool();
+module.exports = {app, db}
