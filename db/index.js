@@ -1,7 +1,9 @@
+import "dotenv/config";
 import { initializeApp } from 'firebase/app';
-import dotenv from "dotenv";
+import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
 
 const config = {
   apiKey: process.env.DB_APIKEY,
@@ -13,7 +15,18 @@ const config = {
   measurementId: process.env.DB_MEASUREMENTID
 };
 
-const app = initializeApp(config);
-const db = getFirestore(app);
+export const app = initializeApp(config);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
 
-module.exports = {app, db}
+const auth = getAuth();
+const email = process.env.DB_USER_TWO;
+const password =  process.env.DB_PASS_TWO;
+
+signInWithEmailAndPassword(auth , email , password)
+.then((userCredential) => {
+  const user = userCredential.user;
+}).catch((err) => {
+  const errCode = err.code;
+  const errMsg = err.message;
+});
