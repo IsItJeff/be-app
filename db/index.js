@@ -19,14 +19,15 @@ export const app = initializeApp(config);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
+// temp auth access to test database down below
 const auth = getAuth();
 const email = process.env.DB_USER_TWO;
 const password =  process.env.DB_PASS_TWO;
 
 signInWithEmailAndPassword(auth , email , password)
-.then((userCredential) => {
-  const user = userCredential.user;
-}).catch((err) => {
-  const errCode = err.code;
-  const errMsg = err.message;
-});
+  .then((userCredential) => {
+    const user = userCredential.user;
+  }).catch((err) => {
+    const errCode = err.code;
+    const errMsg = err.message;
+  });
