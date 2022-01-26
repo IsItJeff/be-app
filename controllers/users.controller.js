@@ -5,7 +5,7 @@ export const addUser = (req , res , next) => {
 
     createUser(userData)
         .then((user) => {
-            res.status(201).send({ msg: "Created New User" });
+            res.status(201).send({user});
         }).catch((err) => {
             next(err);
         });

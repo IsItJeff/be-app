@@ -1,8 +1,10 @@
 import { collection , getDocs , getDoc , doc , deleteDoc , updateDoc , setDoc ,addDoc } from "firebase/firestore";
+import { userValidation }  from "../db/data/validation/user.validation.js";
 import { db } from "../db/index.js";
 
-export const createUser = (userData) => {
-    return addDoc(collection( db , "users"), userData);
+export const createUser = async (userData) => {
+    const data = await userValidation(userData)
+    return data.msg ? data.msg : addDoc(collection( db , "users"), userData);
 };
 
 export const fetchUser = (userId) => {
@@ -19,9 +21,9 @@ export const fetchUsers = () => {
             
             snapshot.docs.forEach((user) => {
                 users.push({...user.data(), id: user.id});
-        });
+            });
         
-        return users;
+            return users;
     });
 };
 
