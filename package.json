@@ -1,23 +1,30 @@
 {
   "name": "be-app",
+  "type": "module",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node .\\db\\index.js",
-    "seed": "node .\\db\\index.js",
+    "test": "jest __tests__/app.tests.cjs",
+    "seed": "node ./db/index.js",
     "server": "nodemon listener.js"
   },
   "author": "Jefri Lunn",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.4.6",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "firebase": "^9.6.4"
   },
-  "type": "module",
   "devDependencies": {
     "jest": "^27.4.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

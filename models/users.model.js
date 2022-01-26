@@ -4,7 +4,7 @@ import { db } from "../db/index.js";
 
 export const createUser = async (userData) => {
     const data = await userValidation(userData)
-    return data.msg ? data.msg : addDoc(collection( db , "users"), userData);
+    return data.msg ? data : addDoc(collection( db , "users"), data);
 };
 
 export const fetchUser = (userId) => {
@@ -27,8 +27,9 @@ export const fetchUsers = () => {
     });
 };
 
-export const updateUser = (userData , userId) => {
-    return updateDoc(doc(db , "users" , userId ), userData);
+export const updateUser = async (userData , userId) => {
+    const data = await userValidation(userData)
+    return data.msg ? data : updateDoc(doc(db , "users" , userId ), data);
 };
 
 export const deleteUser = (userId) => {

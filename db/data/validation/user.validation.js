@@ -5,7 +5,11 @@ export const userValidation = ( userObj ) => {
 
     const checkFirstName = (firstName) => {
         if(!firstName || firstName.length < 3){
-            const errMsg = "First Name required Minimum of 3 Characters";
+            const errMsg = "First Name Minimum of 3 Characters";
+            userObj.msg = errMsg;
+            return userObj;
+        }else if(firstName.length > 24){
+            const errMsg = "First Name Maximum of 24 Characters";
             userObj.msg = errMsg;
             return userObj;
         }else if(whiteSpaceCheck.test(firstName)){
@@ -27,6 +31,10 @@ export const userValidation = ( userObj ) => {
             const errMsg = "Last Name required Minimum of 3 Characters";
             userObj.msg = errMsg;
             return userObj;
+        }else if(lastName.length > 24){
+            const errMsg = "Last Name Maximum of 24 Characters";
+            userObj.msg = errMsg;
+            return userObj;
         }else if(whiteSpaceCheck.test(lastName)){
             const errMsg = "Last Name must not have whitespaces";
             userObj.msg = errMsg;
@@ -40,6 +48,31 @@ export const userValidation = ( userObj ) => {
         }      
     }
     checkLastName(lastName)
+
+    // const checkAddress = (address) => {
+    //     return address;
+    // }
+    // checkAddress(address);
+
+    // const checkPostCode = (postCode) => {
+    //     return postCode;
+    // } 
+    // checkPostCode(postCode);
+
+    // const checkEmail = (email) => {
+    //     return email;
+    // }
+    // checkEmail(email);
+
+    // const checkMobile = (mobile) => {
+    //     return mobile;
+    // } 
+    // checkMobile(mobile);
+
+    // const checkDateOfBirth = (dob) => {
+    //     return dob;
+    // }
+    // checkDateOfBirth(dob);
 
     return userObj;
 }

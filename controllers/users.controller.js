@@ -5,7 +5,7 @@ export const addUser = (req , res , next) => {
 
     createUser(userData)
         .then((user) => {
-            res.status(201).send({user});
+            res.status(201).send(user.msg ? user : {msg: "New User Created"});
         }).catch((err) => {
             next(err);
         });
@@ -37,7 +37,7 @@ export const patchUser = (req , res , next) => {
 
     updateUser(userData , userId)
         .then((user) => {
-            res.status(200).send({ user })
+            res.status(200).send(user.msg ? user : {msg: "New User Created"})
         }).catch((err) => {
             next(err);
         });
