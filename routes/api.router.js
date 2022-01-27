@@ -1,5 +1,6 @@
 import express from "express";
 import usersRouter  from "./users.router.js";
+import loginRouter from "./login.router.js";
 
 const apiRouter = express();
 
@@ -10,5 +11,7 @@ apiRouter
     })
 
 apiRouter.use("/users", usersRouter);
+apiRouter.use("/login", loginRouter)
+
 
 export default apiRouter;
