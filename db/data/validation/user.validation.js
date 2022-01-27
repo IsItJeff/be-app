@@ -1,6 +1,7 @@
 export const userValidation = ( userObj ) => {
     const whiteSpaceCheck = /\s/;
-    const numberscheck = /\d/;
+    const numbersCheck = /\d/;
+    const specialCharacterCheck = /[^A-Za-z0-9]/;
     const {firstName , lastName , address , postCode , email , mobile , dob} = userObj;
 
     const checkFirstName = (firstName) => {
@@ -16,8 +17,12 @@ export const userValidation = ( userObj ) => {
             const errMsg = "First Name must not have whitespaces";
             userObj.msg = errMsg;
             return userObj;
-        }else if(numberscheck.test(firstName)){
+        }else if(numbersCheck.test(firstName)){
             const errMsg = "First Name must not have numbers";
+            userObj.msg = errMsg;
+            return userObj;
+        }else if(specialCharacterCheck.test(firstName)){
+            const errMsg = "First Name must not have special characters";
             userObj.msg = errMsg;
             return userObj;
         }else{
@@ -39,8 +44,12 @@ export const userValidation = ( userObj ) => {
             const errMsg = "Last Name must not have whitespaces";
             userObj.msg = errMsg;
             return userObj;
-        }else if(numberscheck.test(lastName)){
+        }else if(numbersCheck.test(lastName)){
             const errMsg = "Last Name must not have numbers";
+            userObj.msg = errMsg;
+            return userObj;
+        }else if(specialCharacterCheck.test(lastName)){
+            const errMsg = "Last Name must not have special characters";
             userObj.msg = errMsg;
             return userObj;
         }else{
@@ -49,30 +58,72 @@ export const userValidation = ( userObj ) => {
     }
     checkLastName(lastName)
 
-    // const checkAddress = (address) => {
-    //     return address;
-    // }
-    // checkAddress(address);
+    const checkAddress = (address) => {
+        if(!address){
+            return userObj.address = null;
+        }else if(specialCharacterCheck.test(address)){
+            const errMsg = "Address must not have special characters";
+            userObj.msg = errMsg;
+            return userObj;
+        }else if(address.length > 24){
+            const errMsg = "Address needs to be less than 24 characters";
+            userObj.msg = errMsg;
+            return userObj;
+        }else{
+            return address;
+    
+        }
+    }
+    checkAddress(address);
 
-    // const checkPostCode = (postCode) => {
-    //     return postCode;
-    // } 
-    // checkPostCode(postCode);
+    const checkPostCode = (postCode) => {
+        if(!postCode){
+            return userObj.postCode = null;
+        }else if(specialCharacterCheck.test(postCode)){
+            const errMsg = "Post Code must not have special characters";
+            userObj.msg = errMsg;
+            return userObj;
+        }else if(postCode.length > 24){
+            const errMsg = "Address needs to be less than 24 characters";
+            userObj.msg = errMsg;
+            return userObj;
+        }else{
+            return postCode;
+    
+        }
+    } 
+    checkPostCode(postCode);
 
-    // const checkEmail = (email) => {
-    //     return email;
-    // }
-    // checkEmail(email);
+    const checkEmail = (email) => {
+        if(!email){
+            return userObj.email = null;
+        }else{
+            return email;
+        }
+    }
+    checkEmail(email);
 
-    // const checkMobile = (mobile) => {
-    //     return mobile;
-    // } 
-    // checkMobile(mobile);
+    const checkMobile = (mobile) => {
+        if(!mobile){
+            return userObj.mobile = null;
+        }else{
+            return mobile;
+        } 
+    }
+    checkMobile(mobile);
 
-    // const checkDateOfBirth = (dob) => {
-    //     return dob;
-    // }
-    // checkDateOfBirth(dob);
+    const checkDateOfBirth = (dob) => {
+        if(!dob){
+            return userObj.dob = null
+        }else if(!numbersCheck.test(dob)){
+            const errMsg = "Date of Birth needs to be in a number format (i.e. 01012020)";
+            userObj.msg = errMsg;
+            return userObj;
+        }else{
+            return dob;
+        }
+    }
+    checkDateOfBirth(dob);
 
     return userObj;
 }
