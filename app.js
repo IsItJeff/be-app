@@ -8,7 +8,7 @@ app.use(express.json());
 app.use("/api",apiRouter)
 
 app.all("/*", (req, res) => {
-    res.status(404).send({msg:"Not Found"})
+    res.status(404).send({msg:"Please Login First"})
 })
 
 export default app;
