@@ -1,27 +1,22 @@
 import express from "express";
 import usersRouter  from "./users.router.js";
 import loginRouter from "./login.router.js";
-import { getAuth } from "firebase/auth";
+import { getAuth , onAuthStateChanged } from "firebase/auth";
 
 const apiRouter = express();
+const auth = getAuth();
 
-apiRouter
-    .route("/")
-    .get((req, res) => {
-        res.status(200).send({ msg: "API Connection Successful, Welcome Back Commander" })
-    })
-
-apiRouter.use("/login", loginRouter);
-
-if(getAuth().currentUser){
-    apiRouter.use("/users", usersRouter);
-}else{
-    apiRouter
-    .route("/*")
-    .get((req, res) => {
-        res.status(404).send({ msg: "Please Login First" })
-    })
-}
-
+onAuthStateChanged(auth, (user)=>{
+    if(user){
+        apiRouter
+            .route("/")
+            .get((req, res) => {
+                res.status(200).send({ msg: "API Connection Successful, Welcome Back Commander" })
+            })
+        apiRouter.use("/users", usersRouter);
+    }else{
+        apiRouter.use("/login", loginRouter);    
+    }
+})
 
 export default apiRouter;
