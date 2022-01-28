@@ -1,7 +1,7 @@
-import express from "express";
-import usersRouter  from "./users.router.js";
-import loginRouter from "./login.router.js";
-import { getAuth , onAuthStateChanged } from "firebase/auth";
+const express = require("express");
+const usersRouter = require("./users.router");
+const loginRouter = require("./login.router");
+const {getAuth , onAuthStateChanged} = require("firebase/auth")
 
 const apiRouter = express();
 const auth = getAuth();
@@ -19,4 +19,4 @@ onAuthStateChanged(auth, (user)=>{
     }
 })
 
-export default apiRouter;
+module.exports = apiRouter;

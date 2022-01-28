@@ -1,14 +1,10 @@
 {
   "name": "be-app",
-  "type": "module",
-  "jest": {
-    "verbose": true
-  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest __tests__/app.tests.cjs",
+    "test": "jest ./__tests__/app.test.js",
     "seed": "node ./db/index.js",
     "server": "nodemon listener.js"
   },

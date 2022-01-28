@@ -1,6 +1,6 @@
-import { fetchLogin } from "../models/login.model.js"
+const { fetchLogin } = require("../models/login.model")
 
-export const postLogin = (req , res , next) => {
+exports.postLogin = (req , res , next) => {
     const {email , pass} = req.body;
 
     fetchLogin(email , pass)

@@ -1,4 +1,4 @@
-export const userValidation = ( userObj ) => {
+exports.userValidation = ( userObj ) => {
     const whiteSpaceCheck = /\s/;
     const numbersCheck = /\d/;
     const specialCharacterCheck = /[^A-Za-z0-9]/;

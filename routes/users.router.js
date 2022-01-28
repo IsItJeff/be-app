@@ -1,5 +1,5 @@
-import express  from "express";
-import {addUser , getUser , getUsers , patchUser , removeUser} from "../controllers/users.controller.js";
+const express = require("express");
+const {addUser , getUser , getUsers , patchUser , removeUser} = require("../controllers/users.controller");
 
 const usersRouter = express()
 
@@ -15,4 +15,4 @@ usersRouter
     .delete(removeUser)
 
 
-export default usersRouter
+module.exports = usersRouter;

@@ -1,6 +1,6 @@
-import { createUser , fetchUsers , fetchUser , updateUser , deleteUser } from "../models/users.model.js";
+const { createUser , fetchUsers , fetchUser , updateUser , deleteUser } = require("../models/users.model.js");
 
-export const addUser = (req , res , next) => {
+exports.addUser = (req , res , next) => {
     const userData = req.body;
 
     createUser(userData)
@@ -11,7 +11,7 @@ export const addUser = (req , res , next) => {
         });
 };
 
-export const getUser = (req , res , next) => {
+exports.getUser = (req , res , next) => {
     const userId = req.params.userId;
 
     fetchUser(userId)
@@ -22,7 +22,7 @@ export const getUser = (req , res , next) => {
         });
 };
 
-export const getUsers = (req , res , next) => {
+exports.getUsers = (req , res , next) => {
     fetchUsers()
         .then((users) => {
             res.status(200).send({ users });
@@ -31,7 +31,7 @@ export const getUsers = (req , res , next) => {
         });
 };
 
-export const patchUser = (req , res , next) => {
+exports.patchUser = (req , res , next) => {
     const userId = req.params.userId;
     const userData = req.body;
 
@@ -43,7 +43,7 @@ export const patchUser = (req , res , next) => {
         });
 };
 
-export const removeUser = (req , res , next) => {
+exports.removeUser = (req , res , next) => {
     const userId = req.params.userId;
     
     deleteUser(userId)

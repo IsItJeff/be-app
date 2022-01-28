@@ -1,6 +1,6 @@
-import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
+const { getAuth , signInWithEmailAndPassword } = require("firebase/auth");
 
-export const fetchLogin = (email , pass) =>{
+exports.fetchLogin = (email , pass) =>{
     const auth = getAuth();
     
     return signInWithEmailAndPassword(auth , email , pass)

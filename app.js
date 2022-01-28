@@ -1,5 +1,5 @@
-import express from "express";
-import apiRouter from "./routes/api.router.js";
+const express = require("express");
+const apiRouter = require("./routes/api.router.js");
 
 const app = express();
 app.use(express.json());
@@ -10,4 +10,4 @@ app.all("/*", (req, res) => {
     res.status(404).send({msg:"Not Found"})
 })
 
-export default app;
+module.exports = app;
