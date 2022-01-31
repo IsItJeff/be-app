@@ -1,6 +1,6 @@
-const { createUser , fetchUsers , fetchUser , updateUser , deleteUser } = require("../models/users.model.js");
+const { createUser , fetchUsers , fetchUser , updateUser , removeUser } = require("../models/users.model.js");
 
-exports.addUser = (req , res , next) => {
+exports.postUser = (req , res , next) => {
     const userData = req.body;
 
     createUser(userData)
@@ -43,10 +43,10 @@ exports.patchUser = (req , res , next) => {
         });
 };
 
-exports.removeUser = (req , res , next) => {
+exports.deleteUser = (req , res , next) => {
     const userId = req.params.userId;
     
-    deleteUser(userId)
+    removeUser(userId)
         .then((user) => {
             res.status(204).send({ msg:"Deleted Successful" })
         }).catch((err)=>{

@@ -1,18 +1,18 @@
 const express = require("express");
-const {addUser , getUser , getUsers , patchUser , removeUser} = require("../controllers/users.controller");
+const {postUser , getUser , getUsers , patchUser , deleteUser} = require("../controllers/users.controller");
 
 const usersRouter = express()
 
 usersRouter
     .route("/")
     .get(getUsers)
-    .post(addUser)
+    .post(postUser)
 
 usersRouter
     .route("/:userId")
     .get(getUser)
     .patch(patchUser)
-    .delete(removeUser)
+    .delete(deleteUser)
 
 
 module.exports = usersRouter;

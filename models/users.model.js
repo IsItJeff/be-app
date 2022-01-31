@@ -32,6 +32,6 @@ exports.updateUser = async (userData , userId) => {
     return data.msg ? data : updateDoc(doc(db , "users" , userId ), data);
 };
 
-exports.deleteUser = (userId) => {
+exports.removeUser = (userId) => {
     return deleteDoc(doc(db , "users" , userId ));
 };  
