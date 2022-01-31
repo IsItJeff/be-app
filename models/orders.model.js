@@ -1,6 +1,5 @@
 const { collection , getDocs , getDoc , doc , deleteDoc , updateDoc ,addDoc } = require("firebase/firestore");
 const { db } = require("../db/index.js");
-const ordersRouter = require("../routes/orders.router.js");
 
 exports.createOrders = (orderData) => {
     const data = orderData;
