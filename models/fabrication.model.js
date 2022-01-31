@@ -6,6 +6,17 @@ exports.createTube = (tubeData) => {
     return addDoc(collection( db , "fabrications"), data)
 };
 
-exports.createRectangle = ( ) => {
-    
+exports.createRectangle = ( rectangleData ) => {
+    const data = rectangleData;
+    return addDoc(collection( db , "fabrications"), data)
+}
+
+exports.createGusset = ( gussetData ) =>{
+    const data = gussetData;
+    return addDoc(collection( db , "fabrications"), data)
+}
+
+exports.createInsulation = (insulationData) => {
+    const data = insulationData;
+    return addDoc(collection( db , "fabrications"), data) 
 }
