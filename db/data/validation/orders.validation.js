@@ -14,15 +14,15 @@ const rectangleData = {
     rectangleThk: 0, 
 }
 
-const flangeRingData = {
-    flangeRingType: "",
-    flangeRingInDiam : 0,
-    flangeRingOutDiam : 0,
-    flangeRingThk: 0, 
-    flangeRingPCD: 0,
-    flangeRingHolesCount: 0,
-    flangeRingHoleInDiam: 0,
-    flangeFab:[
+const ringData = {
+    ringType: "",
+    ringInDiam : 0,
+    ringOutDiam : 0,
+    ringThk: 0, 
+    ringPCD: 0,
+    ringHolesCount: 0,
+    ringHoleInDiam: 0,
+    ringFab:[
         { tubeDataId: [] },
         { flangeRingDataId: [] },
         { gussetData:[] }
@@ -121,15 +121,6 @@ const branchData = {
     ]
 }
 
-const mountData = {
-    mountType: "",
-    grout: 0,
-    mountFab: [
-        { basePlateType:[] },
-        { flangeRingDataId:[] }
-    ]
-}
-
 const liftingData = {
     liftingType: "",
     liftingPoints: 0,
@@ -141,7 +132,8 @@ const chimneyData = {
     chimneyFab:[
         { branchDataId:[] },
         { mountDataId:[] },
-        { multiCoreId:[] }
+        { multiCoreId:[] },
+        { mount:[]}
     ],
     sections: 0,
     mounting: "",
