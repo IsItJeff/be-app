@@ -11,7 +11,7 @@ const {
     createTube
 } = require("../models/fabrication.model.js");
 
-exports.postBranch = (req , res , next) =>{
+exports.postBranch = (req , res , next) => {
     const branchData = req.body;
 
     createBranch(branchData)

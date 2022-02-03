@@ -1,4 +1,13 @@
-const { collection , getDocs , getDoc , doc , deleteDoc , updateDoc ,addDoc } = require("firebase/firestore");
+const { 
+    collection , 
+    getDocs , 
+    getDoc , 
+    doc , 
+    deleteDoc , 
+    updateDoc ,
+    addDoc 
+} = require("firebase/firestore");
+
 const { db } = require("../db/index.js");
 
 exports.createTube = ( tubeData ) => {
@@ -11,7 +20,7 @@ exports.createRectangle = ( rectangleData ) => {
     return addDoc(collection( db , "fabrications", "rectangles"), data);
 };
 
-exports.createGusset = ( gussetData ) =>{
+exports.createGusset = ( gussetData ) => {
     const data = gussetData;
     return addDoc(collection( db , "fabrications", "gussets"), data);
 };
