@@ -29,14 +29,14 @@ const ringData = {
     ]
 }
 
-const flangeRectangleData = {
-    flangeRectangleType: "",
-    flangeRectangleInWidth: 0,
-    flangeRectangleInHeight: 0,
-    flangeRectangleThk: 0,
-    flangeRectangleHolesCount: 0,
-    flangeRectangleHoleInDiam: 0,
-    flangeRectangleHolesToOutEdge: 0,
+const plateData = {
+    plateType: "",
+    plateInWidth: 0,
+    plateInHeight: 0,
+    plateThk: 0,
+    plateHolesCount: 0,
+    plateHoleInDiam: 0,
+    plateHolesToOutEdge: 0,
 }
 
 const insulationData = {

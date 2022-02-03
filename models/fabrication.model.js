@@ -48,5 +48,5 @@ exports.createBranch = ( branchData ) => {
 
 exports.createChimney = ( chimneyData ) => {
     const data = chimneyData;
-    return addDoc(collection(db, "fabrication", "chimneys"), data )
-}
+    return addDoc(collection(db, "fabrication", "chimneys"), data );
+};
