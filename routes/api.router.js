@@ -16,6 +16,7 @@ onAuthStateChanged(auth, (user)=>{
             })
         apiRouter.use("/users", usersRouter);
         apiRouter.use("/orders", ordersRouter);
+        apiRouter.use("/fabrications", usersRouter);
     }else{
         apiRouter.use("/login", loginRouter);    
     }

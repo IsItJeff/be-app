@@ -1,5 +1,11 @@
 const express = require("express");
-const {postUser , getUser , getUsers , patchUser , deleteUser} = require("../controllers/users.controller");
+const {
+    postUser , 
+    getUser , 
+    getUsers , 
+    patchUser , 
+    deleteUser
+} = require("../controllers/users.controller");
 
 const usersRouter = express()
 

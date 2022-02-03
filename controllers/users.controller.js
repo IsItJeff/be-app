@@ -1,4 +1,10 @@
-const { createUser , fetchUsers , fetchUser , updateUser , removeUser } = require("../models/users.model.js");
+const { 
+    createUser , 
+    fetchUsers , 
+    fetchUser , 
+    updateUser , 
+    removeUser 
+} = require("../models/users.model.js");
 
 exports.postUser = (req , res , next) => {
     const userData = req.body;
