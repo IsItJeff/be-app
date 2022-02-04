@@ -1,5 +1,5 @@
 const express = require("express");
-const { postInsulation } = require("../../controllers/fabrications/insulations.controller");
+const { postInsulation } = require("../../controllers/fabrications/insulations.controller.js");
 
 const insulationsRouter = express();
 

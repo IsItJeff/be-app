@@ -5,7 +5,7 @@ exports.postInsulation = (req , res , next) => {
 
     createInsulation(insulationData)
         .then((insulation) => {
-            res.status(201).send({gusset});
+            res.status(201).send({insulation});
         }).catch((err) => {
             next(err);
         });

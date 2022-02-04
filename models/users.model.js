@@ -14,6 +14,15 @@ exports.fetchUser = (userId) => {
         }); 
 };
 
+exports.updateUser = async (userData , userId) => {
+    const data = await userValidation(userData)
+    return data.msg ? data : updateDoc(doc(db , "users" , userId ), data);
+};
+
+exports.removeUser = (userId) => {
+    return deleteDoc(doc(db , "users" , userId ));
+};  
+
 exports.fetchUsers = () => {
     return getDocs(collection( db , "users"))
         .then((snapshot) => {
@@ -26,12 +35,3 @@ exports.fetchUsers = () => {
             return users;
     });
 };
-
-exports.updateUser = async (userData , userId) => {
-    const data = await userValidation(userData)
-    return data.msg ? data : updateDoc(doc(db , "users" , userId ), data);
-};
-
-exports.removeUser = (userId) => {
-    return deleteDoc(doc(db , "users" , userId ));
-};  
