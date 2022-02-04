@@ -1,16 +1,17 @@
 const express = require("express");
+const { postGusset } = require("../../controllers/fabrications/gussets.controller.js");
 
 const gussetsRouter = express();
 
 gussetsRouter
-    .route("/gussets")
+    .route("/")
     .get()
     .post(postGusset);
 
 gussetsRouter
-    .route("/gussets/:gussetId")
+    .route("/:gussetId")
     .get()
     .patch()
-    .delete()
+    .delete();
 
 module.exports = gussetsRouter;

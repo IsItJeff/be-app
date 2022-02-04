@@ -1,14 +1,15 @@
 const express = require("express");
+const { postCone } = require("../../controllers/fabrications/cones.controller.js");
 
 const conesRouter = express();
 
 conesRouter
-    .route("/cones")
+    .route("/")
     .get()
     .post(postCone);
 
 conesRouter
-    .route("/cones/:coneId")
+    .route("/:coneId")
     .get()
     .patch()
     .delete();

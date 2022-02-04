@@ -1,14 +1,15 @@
 const express = require("express");
+const { postTube } = require("../../controllers/fabrications/tubes.controllers.js");
 
 const tubesRouter = express();
 
 tubesRouter
-    .route("/tubes")
+    .route("/")
     .get()
     .post(postTube);
 
 tubesRouter
-    .route("/tubes/tubeId")
+    .route("/tubeId")
     .get()
     .patch()
     .delete()

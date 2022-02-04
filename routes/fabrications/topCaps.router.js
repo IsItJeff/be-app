@@ -1,14 +1,15 @@
 const express = require("express");
+const { postTopCap } = require("../../controllers/fabrications/topCaps.controller.js");
 
 const topCapsRouter = express();
 
 topCapsRouter
-    .route("/topCaps")
+    .route("/")
     .get()
     .post(postTopCap);
 
 topCapsRouter
-    .route("/topCaps/:topCapId")
+    .route("/:topCapId")
     .get()
     .patch()
     .delete();

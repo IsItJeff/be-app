@@ -1,14 +1,15 @@
 const express = require("express");
+const { postRectangle } = require("../../controllers/fabrications/rectangles.controllers.js");
 
 const rectanglesRouter = express();
 
 rectanglesRouter
-    .route("/rectangles")
+    .route("/")
     .get()
     .post(postRectangle);
 
 rectanglesRouter
-    .route("/rectangles/:rectangleId")
+    .route("/:rectangleId")
     .get()
     .patch()
     .delete();

@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createInsulation = ( insulationData ) => {
     const data = insulationData;
-    return addDoc(collection( db , "fabrications", "insulations"), data); 
+    return addDoc(collection( db , "fabrications/insulations/insulation"), data); 
 };

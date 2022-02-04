@@ -1,8 +1,6 @@
 const express = require("express");
 
-const fabricationsRouter = express();
-
-const branchsRouter = require("./fabrications/branchs.router.js");
+const branchesRouter = require("./fabrications/branches.router.js");
 const chimneysRouter = require("./fabrications/chimneys.router.js");
 const claddingsRouter = require("./fabrications/claddings.router.js");
 const conesRouter = require("./fabrications/cones.router.js");
@@ -13,7 +11,15 @@ const ringsRouter = require("./fabrications/rings.router.js");
 const topCapsRouter = require("./fabrications/topCaps.router.js");
 const tubesRouter = require("./fabrications/tubes.router.js");
 
-fabricationsRouter.use("/branchs" , branchsRouter);
+const fabricationsRouter = express();
+
+fabricationsRouter
+    .route("/")
+    .get((req, res) => {
+        res.status(200).send({ msg: "Welcome to Fabrications" })
+    })
+
+fabricationsRouter.use("/branches" , branchesRouter);
 fabricationsRouter.use("/chimneys" , chimneysRouter);
 fabricationsRouter.use("/claddings" , claddingsRouter);
 fabricationsRouter.use("/cones" , conesRouter);

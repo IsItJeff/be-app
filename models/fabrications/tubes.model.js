@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createTube = ( tubeData ) => {
     const data = tubeData;
-    return addDoc(collection( db , "fabrications", "tubes"), data);
+    return addDoc(collection( db , "fabrications/tubes/tube"), data);
 };

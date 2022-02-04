@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createRectangle = ( rectangleData ) => {
     const data = rectangleData;
-    return addDoc(collection( db , "fabrications", "rectangles"), data);
+    return addDoc(collection( db , "fabrications/rectangles/rectangle"), data);
 };

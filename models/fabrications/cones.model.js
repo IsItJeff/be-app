@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createCone = ( coneData ) => {
     const data = coneData;
-    return addDoc(collection(db , "fabrication", "cones" ), data);
+    return addDoc(collection(db , "fabrications/cones/cone" ), data);
 };

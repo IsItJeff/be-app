@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createTopCap = ( topCapData ) => {
     const data = topCapData;
-    return addDoc(collection(db, "fabrication", "topCaps" ), data);
+    return addDoc(collection(db, "fabrication/topCaps/topCap" ), data);
 };

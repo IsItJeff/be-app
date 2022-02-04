@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createGusset = ( gussetData ) => {
     const data = gussetData;
-    return addDoc(collection( db , "fabrications", "gussets"), data);
+    return addDoc(collection( db , "fabrications/gussets/gusset"), data);
 };

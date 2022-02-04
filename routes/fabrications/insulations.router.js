@@ -1,14 +1,15 @@
 const express = require("express");
+const { postInsulation } = require("../../controllers/fabrications/insulations.controller");
 
 const insulationsRouter = express();
 
 insulationsRouter
-    .route("/insulations")
+    .route("/")
     .get()
     .post(postInsulation);
 
 insulationsRouter
-    .route("/insulations/:insulationId")
+    .route("/:insulationId")
     .get()
     .patch()
     .delete();

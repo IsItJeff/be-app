@@ -1,14 +1,15 @@
 const express = require("express");
+const { postChimney } = require("../../controllers/fabrications/chimneys.controller.js");
 
 const chimneysRouter = express();
 
 chimneysRouter
-    .route("/chimneys")
+    .route("/")
     .get()
     .post(postChimney);
 
 chimneysRouter
-    .route("/chimneys/:chimneyId")
+    .route("/:chimneyId")
     .get()
     .patch()
     .delete();

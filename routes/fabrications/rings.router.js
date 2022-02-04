@@ -1,14 +1,15 @@
 const express = require("express");
+const { postRing } = require("../../controllers/fabrications/rings.controllers.js");
 
 const ringsRouter = express();
 
 ringsRouter
-    .route("/rings")
+    .route("/")
     .get()
     .post(postRing);
 
 ringsRouter
-    .route("/rings/:ringId")
+    .route("/:ringId")
     .get()
     .patch()
     .delete();

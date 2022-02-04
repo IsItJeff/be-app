@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createCladding = ( claddingData ) => {
     const data = claddingData;
-    return addDoc(collection(db, "fabrication", "claddings" ), data);
+    return addDoc(collection(db, "fabrications/claddings/cladding" ), data);
 };

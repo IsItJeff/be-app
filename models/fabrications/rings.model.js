@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createRing = ( ringData ) => {
     const data = ringData;
-    return addDoc(collection(db, "fabrications", "rings"), data);
+    return addDoc(collection(db, "fabrications/rings/ring"), data);
 };

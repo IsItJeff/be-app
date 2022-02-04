@@ -1,17 +1,17 @@
 const express = require("express");
+const { postCladding } = require("../../controllers/fabrications/claddings.controller.js");
 
 const claddingsRouter = express();
 
 claddingsRouter
-    .route("/claddings")
+    .route("/")
     .get()
     .post(postCladding);
 
 claddingsRouter
-    .route("/claddings/:claddingId")
+    .route("/:claddingId")
     .get()
     .patch()
     .delete();
-
 
 module.exports = claddingsRouter;

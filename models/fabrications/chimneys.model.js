@@ -11,5 +11,5 @@ const { db } = require("../../db/index.js");
 
 exports.createChimney = ( chimneyData ) => {
     const data = chimneyData;
-    return addDoc(collection(db, "fabrication", "chimneys"), data );
+    return addDoc(collection(db, "fabrications/chimneys/chimney"), data );
 };
