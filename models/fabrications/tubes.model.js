@@ -8,21 +8,37 @@ const {
     addDoc 
 } = require("firebase/firestore");
 const { db } = require("../../db/index.js");
+
+const Tube = require("../../utils/fabrication/tube.utils.js");
+
 const path = "fabrications/tubes/tube";
 
 exports.createTube = ( tubeData ) => {
-    const data = tubeData;
-    return addDoc(collection( db , path ), data);
+    const data = new Tube( tubeData );
+
+    const refactoredData = {
+        type: data.type(),
+        innerDiam: data.innerDiam(),
+        outterDiam: data.outterDiam(),
+        thickness: data.thickness(),
+        length: data.tLength()
+    }
+
+    
+    
+    return addDoc(collection( db , path ), refactoredData);
 };
 
 exports.fetchTube = ( tubeId ) => {
     return getDoc(doc( db , path , tubeId))
-        .then((snapshot)=>{
+        .then((snapshot) => {
             return snapshot.data();
         });
 };
 
 exports.updateTube = ( tubeId , tubeData ) =>{
+    const data = new Tube(tubeData);
+    console.log(data);
     return updateDoc(doc(db , path , tubeId), tubeData);
 };
 

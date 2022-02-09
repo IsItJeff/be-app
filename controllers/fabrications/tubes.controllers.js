@@ -5,7 +5,7 @@ exports.postTube = (req , res , next) => {
 
     createTube(tubeData)
         .then((tube) => {
-            res.status(201).send({tube})
+            res.status(201).send({msg: "New Tube Created"})
         }).catch((err) => {
             next(err);
         });

@@ -1,10 +1,8 @@
-const { collection , getDocs , getDoc , doc , deleteDoc , updateDoc ,addDoc } = require("firebase/firestore");
-const { userValidation } = require("../db/data/validation/user.validation.js");
+const { collection , getDocs , getDoc , doc , deleteDoc , updateDoc , addDoc } = require("firebase/firestore");
 const { db } = require("../db/index.js")
 
-exports.createUser = async (userData) => {
-    const data = await userValidation(userData)
-    return data.msg ? data : addDoc(collection( db , "users"), data);
+exports.createUser = (userData) => {
+    return data.msg ? data : addDoc(collection( db , "users"), userData);
 };
 
 exports.fetchUser = (userId) => {
@@ -14,9 +12,8 @@ exports.fetchUser = (userId) => {
         }); 
 };
 
-exports.updateUser = async (userData , userId) => {
-    const data = await userValidation(userData)
-    return data.msg ? data : updateDoc(doc(db , "users" , userId ), data);
+exports.updateUser = (userData , userId) => {
+    return updateDoc(doc(db , "users" , userId ), userData);
 };
 
 exports.removeUser = (userId) => {
