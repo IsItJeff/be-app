@@ -5,28 +5,26 @@ const {
     doc , 
     deleteDoc , 
     updateDoc ,
+    query ,
     addDoc 
 } = require("firebase/firestore");
 const { db } = require("../../db/index.js");
-
-const Tube = require("../../utils/fabrication/tube.utils.js");
+const { compaireInputToDb } = require("../../utils/fabrication/tube.utils");
 
 const path = "fabrications/tubes/tube";
 
 exports.createTube = ( tubeData ) => {
-    const data = new Tube( tubeData );
-
-    const refactoredData = {
-        type: data.type(),
-        innerDiam: data.innerDiam(),
-        outterDiam: data.outterDiam(),
-        thickness: data.thickness(),
-        length: data.tLength()
-    }
-
+    const data =  compaireInputToDb(tubeData)
+    console.log(data)
+    // const refactoredData = {
+    //     type: data.type(),
+    //     innerDiam: data.innerDiam(),
+    //     outterDiam: data.outterDiam(),
+    //     thickness: data.thickness(),
+    //     length: data.tLength()
+    // }
     
-    
-    return addDoc(collection( db , path ), refactoredData);
+    return addDoc(collection( db , path ), tubeData);
 };
 
 exports.fetchTube = ( tubeId ) => {

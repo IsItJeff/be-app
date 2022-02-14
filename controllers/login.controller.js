@@ -1,9 +1,9 @@
 const { fetchLogin } = require("../models/login.model")
 
 exports.postLogin = (req , res , next) => {
-    const {email , pass} = req.body;
+    const {email , password} = req.body;
 
-    fetchLogin(email , pass)
+    fetchLogin(email , password)
         .then((login) => {
             res.status(200).send(!login? {msg: "Email or Password is Incorrect"} : {msg: "Login Successful"})
         }).catch((err)=>{

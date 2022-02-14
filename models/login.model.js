@@ -1,9 +1,9 @@
 const { getAuth , signInWithEmailAndPassword } = require("firebase/auth");
 
-exports.fetchLogin = (email , pass) =>{
+exports.fetchLogin = (email , password) =>{
     const auth = getAuth();
     
-    return signInWithEmailAndPassword(auth , email , pass)
+    return signInWithEmailAndPassword(auth , email , password)
         .then((credential) => {
             const loginCredential = credential.user;
             return loginCredential;
