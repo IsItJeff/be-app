@@ -5,7 +5,7 @@ exports.postLogin = (req , res , next) => {
 
     fetchLogin(email , password)
         .then((login) => {
-            res.status(200).send(!login? {msg: "Email or Password is Incorrect"} : {msg: "Login Successful"})
+            res.status(200).send(!login? {msg: "Email or Password is Incorrect"} : {msg: "Login Successful", login})
         }).catch((err)=>{
             next(err);
         });
